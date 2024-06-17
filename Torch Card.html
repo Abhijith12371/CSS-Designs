@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Hover Effect</title>
+    <style>
+        #c1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            width: 300px;
+            border: 2px solid;
+            margin: auto;
+            border-radius: 6px;
+            background: linear-gradient(transparent,rgb(216, 212, 212));
+            box-shadow: 0px 0px 12px ;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="cards">
+        <div id="c1">
+            <h1>Your Future Card is ready To Go</h1>
+        </div>
+    </div>
+    <script>
+        let card1 = document.getElementById("c1");
+        card1.addEventListener("mousemove", (e) => {
+            let rect = card1.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
+            card1.style.background = `radial-gradient(circle at ${x}px ${y}px, white, black)`;
+        });
+        card1.addEventListener("mouseleave", (e) => {
+            card1.style.background = "linear-gradient(transparent, rgb(216, 212, 212))";
+        });
+    </script>
+    
+</body>
+</html>
